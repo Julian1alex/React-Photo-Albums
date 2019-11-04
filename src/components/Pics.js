@@ -17,6 +17,9 @@ return (
     <div className="gcontainer">
     <div class="gallery-image2">
              <div class="img-box2">
+             <Link className="Home" to="/">
+            &larr;
+            </Link>
              <img className="albumsize" src = {pictures.url}/>
              </div>
              </div>        
