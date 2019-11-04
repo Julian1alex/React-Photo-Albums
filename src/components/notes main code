@@ -1,0 +1,65 @@
+import React, { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+class Main extends Component {
+  state = {
+    albums: []
+  };
+
+  componentDidMount() {
+    axios.get("/api/albums").then(resp => {
+      this.setState({
+        albums: resp.data
+      });
+    });
+  }
+  render() {
+    return (
+      <div id="container">
+        <header id="mainHeader">
+          <h1>Super Heroes</h1>
+        </header>
+
+        <main id="albumArea">
+          {this.state.albums.map(album => (
+            <Link to={"/album/" + album.id}>
+              <div className="albumWrapper">
+                <div className="indieAlbum">
+                  <img src={album.url} />
+                  <div className="albumTitle">
+                    <span className="title">{album.name}</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </main>
+      </div>
+    );
+  }
+}
+
+export default Main;
+
+function Albums(props) {
+    const id = props.match.params.id
+    const Contact = Users.find(Contact => Contact.id === Number (id))
+    
+    return (
+        <div>
+            <Link className="link" to="/">
+            &larr;
+            </Link>
+        <div>
+            <img src= {Contact.picture.large}/>
+        </div>
+        <div>
+            <div><p>Name: {Contact.name.first} {Contact.name.last}</p></div>
+            <div><p>Email: {Contact.email}</p></div>
+            <div><p>Phone: {Contact.phone}</p></div>
+            <div><p>Location: {Contact.location.city} {Contact.location.state}</p></div>
+        </div>
+        </div>
+    )
+    }
