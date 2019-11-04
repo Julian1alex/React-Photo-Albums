@@ -15,15 +15,11 @@ axios.get(`/Albums/${id}`).then(resp => {
 return (
     <div className="background">
     <div className="gcontainer">
-    <Link to= {"/Albums/" + pictures.id} key={"key" + pictures.id}>
     <div class="gallery-image2">
              <div class="img-box2">
              <img className="albumsize" src = {pictures.url}/>
              </div>
-             </div>    
-    </Link>
-    
-        
+             </div>        
     </div>
     </div>
 )
