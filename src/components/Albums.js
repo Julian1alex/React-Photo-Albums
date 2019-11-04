@@ -13,7 +13,7 @@ function Content (props) {
 axios.get(`/Albums/${id}?_embed=pictures`).then(resp => {
     setPictures(resp.data.pictures)
 })
-}, [])
+}, [id])
 
 
 useEffect (() => {
@@ -33,8 +33,6 @@ useEffect (() => {
              </div>
             </Link>
         ))}
-
-
 
             {pictures.map((e)=>(
             <Link to= {"/Pics/" + e.id} key={"key" + e.id}>

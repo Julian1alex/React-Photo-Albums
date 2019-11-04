@@ -21,7 +21,8 @@ return (
              <div class="img-box2">
              <img className="albumsize" src = {e.url}/>
              </div>
-             </div>    </Link>
+             </div>    
+    </Link>
     
         ))}
     </div>
